@@ -2,15 +2,16 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Malla Tecnología Médica UNAB</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tecnología Médica Mención BACIMET</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>Malla Interactiva - Tecnología Médica (UNAB Diurna)</h1>
+  <h1>Tecnología Médica - Mención BACIMET</h1>
   <div id="malla-container"></div>
-  <div id="atraso-info"></div>
+  <div id="atraso-container">Semestres de atraso: <span id="atraso">0</span></div>
   <script src="scripts.js"></script>
 </body>
 </html>
+
 
