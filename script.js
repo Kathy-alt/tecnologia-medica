@@ -2,18 +2,18 @@ const ramos = [
   // Semestre 1
   { id: "anatomia", nombre: "Anatomía Humana", semestre: 1 },
   { id: "biologia", nombre: "Biología Celular", semestre: 1 },
-  { id: "lab_biologia", nombre: "Laboratorio de Biología Celular", semestre: 1, requisitos: ["biologia"] },
-  { id: "quimica_cel", nombre: "Química Celular", semestre: 1 },
-  { id: "quimica_gen", nombre: "Química General", semestre: 1 },
-  { id: "intro_tec", nombre: "Introducción a la Tecnología Médica", semestre: 1 },
-  { id: "algebra", nombre: "Elemento de Álgebra y Cálculo", semestre: 1 },
+  { id: "lab_biologia", nombre: "Laboratorio de Biología Celular", semestre: 1 },
+  { id: "quimica_celular", nombre: "Química Celular", semestre: 1 },
+  { id: "quimica_general", nombre: "Química General", semestre: 1 },
+  { id: "intro_tecnologia", nombre: "Introducción a la Tecnología Médica", semestre: 1 },
+  { id: "algebra_calculo", nombre: "Elemento de Álgebra y Cálculo", semestre: 1 },
 
   // Semestre 2
   { id: "histoembriologia", nombre: "Histoembriología", semestre: 2 },
-  { id: "fisica_gen", nombre: "Física General", semestre: 2 },
-  { id: "quimica_org", nombre: "Química Orgánica", semestre: 2 },
+  { id: "fisica_general", nombre: "Física General", semestre: 2 },
+  { id: "quimica_organica", nombre: "Química Orgánica", semestre: 2 },
   { id: "ingles1", nombre: "Inglés I", semestre: 2 },
-  { id: "habilidades_com", nombre: "Habilidades Comunicativas", semestre: 2 },
+  { id: "habilidades_comunicativas", nombre: "Habilidades Comunicativas", semestre: 2 },
 
   // Semestre 3
   { id: "fisiologia", nombre: "Fisiología Humana", semestre: 3 },
@@ -21,161 +21,165 @@ const ramos = [
   { id: "bioquimica", nombre: "Bioquímica", semestre: 3 },
   { id: "infectologia", nombre: "Infectología", semestre: 3 },
   { id: "ingles2", nombre: "Inglés II", semestre: 3, requisitos: ["ingles1"] },
-  { id: "razon_cient", nombre: "Razonamiento Científico y TICs", semestre: 3 },
+  { id: "razonamiento_tics", nombre: "Razonamiento Científico y TICs", semestre: 3 },
 
   // Semestre 4
-  { id: "fisiopato", nombre: "Fisiopatología", semestre: 4 },
-  { id: "farmaco", nombre: "Farmacología General", semestre: 4 },
+  { id: "fisiopatologia", nombre: "Fisiopatología", semestre: 4 },
+  { id: "farmacologia", nombre: "Farmacología General", semestre: 4 },
   { id: "parasitologia", nombre: "Parasitología", semestre: 4 },
-  { id: "inmuno_diag", nombre: "Inmunología Diagnóstica", semestre: 4 },
+  { id: "inmunologia", nombre: "Inmunología Diagnóstica", semestre: 4 },
   { id: "ingles3", nombre: "Inglés III", semestre: 4, requisitos: ["ingles2"] },
 
   // Semestre 5
-  { id: "proc_tec_med", nombre: "Procedimientos de Tecnología Médica y Bioseguridad", semestre: 5, requisitos: ["farmaco"] },
-  { id: "salud_pub1", nombre: "Salud Pública 1", semestre: 5, requisitos: ["fisiopato"] },
-  { id: "microbio1", nombre: "Microbiología 1", semestre: 5, requisitos: ["parasitologia","farmaco"] },
-  { id: "hema1", nombre: "Hematología 1", semestre: 5, requisitos: ["fisiopato","inmuno_diag"] },
+  { id: "procedimientos", nombre: "Procedimientos de Tecnología Médica y Bioseguridad", semestre: 5, requisitos: ["farmacologia"] },
+  { id: "salud_publica1", nombre: "Salud Pública I", semestre: 5, requisitos: ["fisiopatologia", "inmunologia"] },
+  { id: "microbiologia1", nombre: "Microbiología I", semestre: 5, requisitos: ["parasitologia", "farmacologia"] },
+  { id: "hematologia1", nombre: "Hematología I", semestre: 5, requisitos: ["fisiopatologia", "inmunologia"] },
   { id: "ingles4", nombre: "Inglés IV", semestre: 5, requisitos: ["ingles3"] },
 
   // Semestre 6
-  { id: "salud_pub2", nombre: "Salud Pública 2", semestre: 6, requisitos: ["salud_pub1","proc_tec_med"] },
-  { id: "microbio2", nombre: "Microbiología 2", semestre: 6, requisitos: ["microbio1"] },
-  { id: "hema2", nombre: "Hematología 2", semestre: 6, requisitos: ["hema1"] },
-  { id: "bioquim_clin1", nombre: "Bioquímica Clínica 1", semestre: 6, requisitos: ["inmuno_diag","hema1"] },
+  { id: "salud_publica2", nombre: "Salud Pública II", semestre: 6, requisitos: ["salud_publica1", "procedimientos"] },
+  { id: "microbiologia2", nombre: "Microbiología II", semestre: 6, requisitos: ["microbiologia1"] },
+  { id: "hematologia2", nombre: "Hematología II", semestre: 6, requisitos: ["hematologia1"] },
+  { id: "bioquimica_clinica1", nombre: "Bioquímica Clínica I", semestre: 6, requisitos: ["inmunologia", "hematologia1"] },
 
   // Semestre 7
-  { id: "educ_salud", nombre: "Educación en Salud", semestre: 7, requisitos: ["salud_pub2"] },
-  { id: "admin_gest_salud", nombre: "Administración y Gestión en Salud", semestre: 7, requisitos: ["salud_pub2","bioquim_clin1"] },
-  { id: "biologia_mol", nombre: "Biología Molecular", semestre: 7, requisitos: ["bioquim_clin1"] },
-  { id: "inmunohema", nombre: "Inmunohematología", semestre: 7, requisitos: ["hema1"] },
-  { id: "bioquim_clin2", nombre: "Bioquímica Clínica 2", semestre: 7, requisitos: ["bioquim_clin1"] },
-  { id: "integrador1", nombre: "Integrador 1: Caso Clínico BACIMET", semestre: 7, requisitos: [] },
+  { id: "educacion_salud", nombre: "Educación en Salud", semestre: 7, requisitos: ["salud_publica2"] },
+  { id: "admin_gestion", nombre: "Administración y Gestión en Salud", semestre: 7, requisitos: ["salud_publica2", "bioquimica_clinica1"] },
+  { id: "biologia_molecular", nombre: "Biología Molecular", semestre: 7, requisitos: ["bioquimica_clinica1"] },
+  { id: "inmunohematologia", nombre: "Inmunohematología", semestre: 7, requisitos: ["hematologia1"] },
+  { id: "bioquimica_clinica2", nombre: "Bioquímica Clínica II", semestre: 7, requisitos: ["bioquimica_clinica1"] },
+  { id: "integrador1", nombre: "Integrador I: Caso Clínico BACIMET", semestre: 7, requisitos: [] }, // se considerará desbloqueado sólo si se aprueban todos anteriores
 
   // Semestre 8
-  { id: "metodo_inv", nombre: "Metodología de la Investigación", semestre: 8, requisitos: ["salud_pub2","integrador1"] },
-  { id: "gestion_calidad", nombre: "Gestión y Aseguramiento de la Calidad", semestre: 8, requisitos: ["admin_gest_salud","integrador1"] },
-  { id: "fisiopatologia2", nombre: "Fisiopatología 2", semestre: 8, requisitos: ["fisiopato"] },
-  { id: "bioquim_clin3", nombre: "Bioquímica Clínica 3", semestre: 8, requisitos: ["bioquim_clin2"] },
-  { id: "integrador2", nombre: "Integrador 2: Caso Clínico BACIMET", semestre: 8, requisitos: ["integrador1"] },
+  { id: "metodologia", nombre: "Metodología de la Investigación", semestre: 8, requisitos: ["salud_publica2", "integrador1"] },
+  { id: "gestion_calidad", nombre: "Gestión y Aseguramiento de la Calidad", semestre: 8, requisitos: ["admin_gestion", "integrador1"] },
+  { id: "medicina_transfusional", nombre: "Medicina Transfusional", semestre: 8, requisitos: ["integrador1", "inmunohematologia"] },
+  { id: "diagnostico_molecular", nombre: "Diagnóstico Molecular Clínico", semestre: 8, requisitos: ["integrador1"] },
+  { id: "pensamiento_critico", nombre: "Pensamiento Crítico", semestre: 8 },
 
   // Semestre 9
-  { id: "residencia", nombre: "Residencia Profesional", semestre: 9, requisitos: ["integrador2"] },
+  { id: "responsabilidad_social", nombre: "Responsabilidad Social", semestre: 9, requisitos: [] }, // requiere aprobar todo hasta 8
+  { id: "seminario_investigacion", nombre: "Seminario de Investigación BACIMET", semestre: 9, requisitos: [] }, // idem
 
   // Semestre 10
-  { id: "trabajo_grado", nombre: "Trabajo de Grado", semestre: 10, requisitos: ["residencia"] }
+  { id: "integrador2", nombre: "Integrador II: Internado Clínico BACIMET", semestre: 10, requisitos: [] } // idem
 ];
 
-// Estado del ramo: aprobado, desaprobado o null (no cursado)
-const estados = {};
-// Contar cuántos semestres retrasados
-let atrasos = 0;
+// Estado de aprobación: "none" (sin aprobar), "approved", "failed"
+const estadoRamos = {}; // id -> estado
 
-const totalSemestres = 10;
+const mallaContainer = document.getElementById("malla-container");
+const estadoDiv = document.getElementById("estado");
 
-function puedeCursar(ramo) {
+// Inicializa todos los ramos con estado none
+ramos.forEach(r => estadoRamos[r.id] = "none");
+
+function crearCelda(ramo) {
+  const td = document.createElement("td");
+  td.classList.add("ramo");
+  td.textContent = ramo.nombre;
+  td.dataset.id = ramo.id;
+  td.dataset.semestre = ramo.semestre;
+
+  actualizarEstadoCelda(td, estadoRamos[ramo.id]);
+
+  td.addEventListener("click", () => {
+    toggleEstado(ramo.id);
+  });
+
+  return td;
+}
+
+function actualizarEstadoCelda(td, estado) {
+  td.classList.remove("approved", "failed", "locked");
+  if (estado === "approved") {
+    td.classList.add("approved");
+  } else if (estado === "failed") {
+    td.classList.add("failed");
+  }
+  // Lock si prerrequisitos no aprobados
+  if (!puedeTomarRamo(td.dataset.id)) {
+    td.classList.add("locked");
+  }
+}
+
+function puedeTomarRamo(id) {
+  const ramo = ramos.find(r => r.id === id);
   if (!ramo.requisitos || ramo.requisitos.length === 0) return true;
 
-  // Todos los prerequisitos deben estar aprobados
-  return ramo.requisitos.every(reqId => estados[reqId] === 'aprobado');
+  return ramo.requisitos.every(reqId => estadoRamos[reqId] === "approved");
 }
 
-function actualizarTabla() {
-  const tbody = document.getElementById("malla-body");
-  tbody.innerHTML = "";
+// Cambia el estado del ramo en ciclo none -> approved -> failed -> none
+function toggleEstado(id) {
+  if (!puedeTomarRamo(id)) return; // no permite cambiar estado si bloqueado
 
-  // Construimos arreglo de arrays por semestre (columnas)
-  // Para poder pintar filas, cada fila corresponde a un conjunto de ramos en las mismas posiciones de semestres.
-  // Pero aquí por simplicidad, haremos una fila por cada máximo número de ramos por semestre.
-  
-  // Primero agrupamos ramos por semestre
-  const ramosPorSemestre = [];
-  for (let i = 1; i <= totalSemestres; i++) {
-    ramosPorSemestre[i] = ramos.filter(r => r.semestre === i);
+  const estadoActual = estadoRamos[id];
+  let nuevoEstado;
+  if (estadoActual === "none") nuevoEstado = "approved";
+  else if (estadoActual === "approved") nuevoEstado = "failed";
+  else nuevoEstado = "none";
+
+  estadoRamos[id] = nuevoEstado;
+
+  renderMalla();
+  mostrarEstadoGeneral();
+}
+
+function renderMalla() {
+  mallaContainer.innerHTML = "";
+  const tabla = document.createElement("table");
+  tabla.classList.add("malla-table");
+
+  // Crear encabezado (semestres)
+  const thead = document.createElement("thead");
+  const trHead = document.createElement("tr");
+  for(let i=1; i<=10; i++) {
+    const th = document.createElement("th");
+    th.textContent = `Semestre ${i}`;
+    trHead.appendChild(th);
   }
+  thead.appendChild(trHead);
+  tabla.appendChild(thead);
 
-  // Encontrar el máximo número de ramos en algún semestre
-  const maxRamosFila = Math.max(...ramosPorSemestre.map(arr => arr.length || 0));
+  // Calcular número máximo de ramos por semestre para filas
+  const maxRamos = Math.max(...Array.from({length:10}, (_,i) => ramos.filter(r => r.semestre === i+1).length));
 
-  // Construir las filas
-  for (let fila = 0; fila < maxRamosFila; fila++) {
+  // Crear cuerpo con filas por ramos
+  const tbody = document.createElement("tbody");
+  for(let fila=0; fila<maxRamos; fila++) {
     const tr = document.createElement("tr");
-
-    for (let s = 1; s <= totalSemestres; s++) {
-      const td = document.createElement("td");
-      const ramo = ramosPorSemestre[s][fila];
-      if (ramo) {
-        // Evaluar si puede cursar o está bloqueado por prerequisitos
-        const aprobado = estados[ramo.id] === 'aprobado';
-        const desaprobado = estados[ramo.id] === 'desaprobado';
-        const puede = puedeCursar(ramo);
-
-        const div = document.createElement("div");
-        div.classList.add("ramo");
-        div.textContent = ramo.nombre;
-        div.title = `Semestre: ${ramo.semestre}\nID: ${ramo.id}\n` +
-                    (ramo.requisitos && ramo.requisitos.length > 0 ? `Requisitos: ${ramo.requisitos.join(", ")}` : "Sin requisitos");
-        
-        if (aprobado) {
-          div.classList.add("approved");
-        } else if (desaprobado) {
-          div.classList.add("failed");
-        } else if (!puede) {
-          div.classList.add("locked");
-        }
-
-        div.onclick = () => {
-          if (div.classList.contains("locked")) return; // No cambiar estado si bloqueado
-
-          // Cambiar ciclo aprobado -> desaprobado -> sin estado -> aprobado ...
-          if (!estados[ramo.id]) {
-            estados[ramo.id] = 'aprobado';
-          } else if (estados[ramo.id] === 'aprobado') {
-            estados[ramo.id] = 'desaprobado';
-          } else if (estados[ramo.id] === 'desaprobado') {
-            delete estados[ramo.id];
-          }
-          actualizarTabla();
-          actualizarEstado();
-        };
-
-        td.appendChild(div);
+    for(let semestre=1; semestre<=10; semestre++) {
+      const ramosSemestre = ramos.filter(r => r.semestre === semestre);
+      if (fila < ramosSemestre.length) {
+        const td = crearCelda(ramosSemestre[fila]);
+        tr.appendChild(td);
+      } else {
+        const td = document.createElement("td");
+        tr.appendChild(td);
       }
-      tr.appendChild(td);
     }
-
     tbody.appendChild(tr);
   }
+  tabla.appendChild(tbody);
+  mallaContainer.appendChild(tabla);
 }
 
-function actualizarEstado() {
-  // Calcular atrasos: contar cuántos ramos aprobados están con semestre anterior y aún no cursaron los anteriores
-
-  atrasos = 0;
-
-  for (const ramo of ramos) {
-    if (estados[ramo.id] === 'aprobado') {
-      // Para cada prerequisito del ramo, si no está aprobado y el semestre del prereq es anterior, es atraso
-      if (ramo.requisitos && ramo.requisitos.length > 0) {
-        for (const pre of ramo.requisitos) {
-          const preRamo = ramos.find(r => r.id === pre);
-          if (preRamo && preRamo.semestre < ramo.semestre) {
-            if (estados[pre] !== 'aprobado') {
-              atrasos++;
-              break;
-            }
-          }
-        }
-      }
-    }
+function mostrarEstadoGeneral() {
+  // Aquí puedes calcular semestres atrasados o resumen
+  // Por simplicidad, solo contamos cuántos aprobados y fallados
+  let aprobados = 0, fallados = 0;
+  for (const estado of Object.values(estadoRamos)) {
+    if (estado === "approved") aprobados++;
+    else if (estado === "failed") fallados++;
   }
-
-  const estadoDiv = document.getElementById("estado");
-  if (atrasos > 0) {
-    estadoDiv.textContent = `⚠️ Hay ${atrasos} atraso(s) de prerrequisitos para ramos aprobados.`;
-  } else {
-    estadoDiv.textContent = "✔️ Todos los prerrequisitos están cumplidos para los ramos aprobados.";
-  }
+  estadoDiv.textContent = `Aprobados: ${aprobados} | Desaprobados: ${fallados}`;
 }
+
+renderMalla();
+mostrarEstadoGeneral();
+
 
 // Iniciar tabla al cargar página
 actualizarTabla();
