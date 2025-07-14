@@ -8,34 +8,43 @@ body {
 h1 {
   text-align: center;
   color: #6e0f2c;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-  table-layout: fixed;
+#malla-container {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 10px;
+  margin-top: 20px;
 }
 
-th {
-  background-color: #6e0f2c;
-  color: white;
+.semestre-title {
+  grid-column: span 1;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-weight: bold;
+  text-align: center;
+  font-size: 14px;
+  color: #8a1538;
   padding: 10px;
+  background-color: #f0c8d4;
+  border-radius: 6px;
 }
 
-td {
-  vertical-align: top;
-  padding: 5px;
+.semestre-column {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .ramo {
   background-color: #f3dbe2;
   border: 2px solid #8a1538;
-  border-radius: 8px;
   padding: 10px;
-  margin-bottom: 10px;
+  border-radius: 8px;
   text-align: center;
   cursor: pointer;
+  user-select: none;
   transition: background-color 0.3s, color 0.3s;
   font-size: 13px;
 }
@@ -62,12 +71,11 @@ td {
 }
 
 #estado {
-  margin: 20px auto;
+  margin-top: 30px;
   padding: 10px;
+  font-size: 16px;
+  text-align: center;
   background-color: #f5d9e0;
   border: 2px dashed #8a1538;
   border-radius: 8px;
-  text-align: center;
-  font-weight: bold;
 }
-
