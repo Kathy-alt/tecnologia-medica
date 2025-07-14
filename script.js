@@ -1,69 +1,71 @@
+// Archivo script.js funcional con requisitos completos e interacción avanzada
+
 const ramos = [
   // Semestre 1
   { id: "anatomia", nombre: "Anatomía Humana", semestre: 1 },
   { id: "biocel", nombre: "Biología Celular", semestre: 1 },
   { id: "labbiocel", nombre: "Lab. de Biología Celular", semestre: 1 },
-  { id: "quimicacel", nombre: "Química Celular", semestre: 1 },
-  { id: "quimicagral", nombre: "Química General", semestre: 1 },
-  { id: "intro", nombre: "Intro a la Tec. Médica", semestre: 1 },
-  { id: "algebra", nombre: "Álgebra y Cálculo", semestre: 1 },
+  { id: "quimcel", nombre: "Química Celular", semestre: 1 },
+  { id: "quimgeneral", nombre: "Química General", semestre: 1 },
+  { id: "introTM", nombre: "Intro a la Tecnología Médica", semestre: 1 },
+  { id: "algebra", nombre: "Elementos de Álgebra y Cálculo", semestre: 1 },
 
   // Semestre 2
   { id: "histo", nombre: "Histoembriología", semestre: 2 },
   { id: "fisica", nombre: "Física General", semestre: 2 },
-  { id: "quimicaorg", nombre: "Química Orgánica", semestre: 2 },
+  { id: "quimorg", nombre: "Química Orgánica", semestre: 2 },
   { id: "ingles1", nombre: "Inglés I", semestre: 2 },
   { id: "comunicacion", nombre: "Habilidades Comunicativas", semestre: 2 },
 
   // Semestre 3
   { id: "fisiologia", nombre: "Fisiología Humana", semestre: 3 },
   { id: "bioetica", nombre: "Bioética", semestre: 3 },
-  { id: "bioquimica", nombre: "Bioquímica", semestre: 3 },
-  { id: "infectologia", nombre: "Infectología", semestre: 3 },
+  { id: "bioq", nombre: "Bioquímica", semestre: 3 },
+  { id: "infecto", nombre: "Infectología", semestre: 3 },
   { id: "ingles2", nombre: "Inglés II", semestre: 3, requisitos: ["ingles1"] },
-  { id: "tic", nombre: "Razonamiento Científico y TICs", semestre: 3 },
+  { id: "tics", nombre: "Razonamiento Científico y TICs", semestre: 3 },
 
   // Semestre 4
   { id: "fisiopato", nombre: "Fisiopatología", semestre: 4 },
   { id: "farmaco", nombre: "Farmacología General", semestre: 4 },
-  { id: "parasito", nombre: "Parasitología", semestre: 4 },
+  { id: "parasitologia", nombre: "Parasitología", semestre: 4 },
   { id: "inmuno", nombre: "Inmunología Diagnóstica", semestre: 4 },
   { id: "ingles3", nombre: "Inglés III", semestre: 4, requisitos: ["ingles2"] },
 
   // Semestre 5
-  { id: "procedimientos", nombre: "Proced. TM y Bioseguridad", semestre: 5, requisitos: ["farmaco"] },
-  { id: "salud1", nombre: "Salud Pública I", semestre: 5, requisitos: ["fisiopato"] },
-  { id: "micro1", nombre: "Microbiología I", semestre: 5, requisitos: ["parasito", "farmaco"] },
+  { id: "procedimientos", nombre: "Procedimientos y Bioseguridad", semestre: 5, requisitos: ["farmaco"] },
+  { id: "saludpub1", nombre: "Salud Pública I", semestre: 5, requisitos: ["fisiopato"] },
+  { id: "micro1", nombre: "Microbiología I", semestre: 5, requisitos: ["parasitologia", "farmaco"] },
   { id: "hemato1", nombre: "Hematología I", semestre: 5, requisitos: ["fisiopato", "inmuno"] },
   { id: "ingles4", nombre: "Inglés IV", semestre: 5, requisitos: ["ingles3"] },
 
   // Semestre 6
-  { id: "salud2", nombre: "Salud Pública II", semestre: 6, requisitos: ["salud1"] },
+  { id: "saludpub2", nombre: "Salud Pública II", semestre: 6, requisitos: ["saludpub1", "procedimientos"] },
   { id: "micro2", nombre: "Microbiología II", semestre: 6, requisitos: ["micro1"] },
   { id: "hemato2", nombre: "Hematología II", semestre: 6, requisitos: ["hemato1"] },
-  { id: "bioq1", nombre: "Bioquímica Clínica I", semestre: 6 },
+  { id: "bioqclin1", nombre: "Bioquímica Clínica I", semestre: 6, requisitos: ["inmuno", "hemato1"] },
 
   // Semestre 7
-  { id: "educacion", nombre: "Educación en Salud", semestre: 7 },
-  { id: "gestion", nombre: "Admin. y Gestión en Salud", semestre: 7 },
-  { id: "mol", nombre: "Biología Molecular", semestre: 7 },
-  { id: "inmunohe", nombre: "Inmunohematología", semestre: 7 },
-  { id: "bioq2", nombre: "Bioquímica Clínica II", semestre: 7, requisitos: ["bioq1"] },
-  { id: "integ1", nombre: "Integrador I: Caso Clínico BACIMET", semestre: 7 },
+  { id: "educacion", nombre: "Educación en Salud", semestre: 7, requisitos: ["saludpub2"] },
+  { id: "admin", nombre: "Administración y Gestión", semestre: 7, requisitos: ["saludpub2", "bioqclin1"] },
+  { id: "biomol", nombre: "Biología Molecular", semestre: 7, requisitos: ["bioqclin1"] },
+  { id: "inmunohemato", nombre: "Inmunohematología", semestre: 7, requisitos: ["hemato1"] },
+  { id: "bioqclin2", nombre: "Bioquímica Clínica II", semestre: 7, requisitos: ["bioqclin1"] },
+  { id: "integrador1", nombre: "Integrador I: Caso Clínico", semestre: 7, requisitos: ["bioqclin2", "inmunohemato", "admin", "biomol", "educacion", "saludpub2", "hemato2", "micro2"] },
 
   // Semestre 8
-  { id: "metodo", nombre: "Metodología Investigación", semestre: 8 },
-  { id: "calidad", nombre: "Gestión y Calidad", semestre: 8 },
-  { id: "transf", nombre: "Medicina Transfusional", semestre: 8 },
-  { id: "diagmol", nombre: "Diagnóstico Molecular Clínico", semestre: 8 },
-  { id: "procCritico", nombre: "Procesamiento Crítico", semestre: 8 },
+  { id: "metodologia", nombre: "Metodología Investigación", semestre: 8, requisitos: ["saludpub2", "integrador1"] },
+  { id: "gestion", nombre: "Gestión y Calidad", semestre: 8, requisitos: ["admin", "integrador1"] },
+  { id: "transfusion", nombre: "Medicina Transfusional", semestre: 8, requisitos: ["integrador1", "inmunohemato"] },
+  { id: "diagmol", nombre: "Diagnóstico Molecular Clínico", semestre: 8, requisitos: ["integrador1"] },
+  { id: "procesamiento", nombre: "Procesamiento Crítico", semestre: 8 },
 
   // Semestre 9
-  { id: "social", nombre: "Responsabilidad Social", semestre: 9 },
-  { id: "seminario", nombre: "Seminario Investigación BACIMET", semestre: 9 },
+  { id: "responsabilidad", nombre: "Responsabilidad Social", semestre: 9, requisitos: ["metodologia", "gestion", "transfusion", "diagmol"] },
+  { id: "seminario", nombre: "Seminario Investigación", semestre: 9, requisitos: ["metodologia", "integrador1"] },
 
   // Semestre 10
-  { id: "internado", nombre: "Integrador II: Internado BACIMET", semestre: 10 },
+  { id: "integrador2", nombre: "Integrador II: Internado Clínico", semestre: 10, requisitos: ["seminario", "responsabilidad"] }
 ];
 
 const mallaContainer = document.getElementById("malla-container");
