@@ -3,6 +3,7 @@ body {
   background-color: #f9f0f3;
   color: #3d0a1a;
   padding: 20px;
+  margin: 0;
 }
 
 h1 {
@@ -14,39 +15,34 @@ h1 {
 #malla-container {
   display: grid;
   grid-template-columns: repeat(10, 1fr);
-  gap: 10px;
-  margin-top: 20px;
-}
-
-.semestre-title {
-  grid-column: span 1;
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
-  font-weight: bold;
-  text-align: center;
-  font-size: 14px;
-  color: #8a1538;
-  padding: 10px;
-  background-color: #f0c8d4;
-  border-radius: 6px;
+  gap: 15px;
+  margin-top: 10px;
 }
 
 .semestre-column {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+}
+
+.semestre-title {
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #8a1538;
+  text-align: center;
 }
 
 .ramo {
   background-color: #f3dbe2;
   border: 2px solid #8a1538;
-  padding: 10px;
+  padding: 10px 8px;
   border-radius: 8px;
   text-align: center;
   cursor: pointer;
   user-select: none;
-  transition: background-color 0.3s, color 0.3s;
+  margin-bottom: 8px;
   font-size: 13px;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .ramo.locked {
@@ -71,11 +67,14 @@ h1 {
 }
 
 #estado {
-  margin-top: 30px;
+  margin: 20px auto 0 auto;
   padding: 10px;
   font-size: 16px;
   text-align: center;
   background-color: #f5d9e0;
   border: 2px dashed #8a1538;
   border-radius: 8px;
+  max-width: 400px;
+  font-weight: 600;
 }
+
