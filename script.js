@@ -167,4 +167,44 @@ function mostrarEstadoGeneral() {
 
 renderMalla();
 mostrarEstadoGeneral();
+const ramos = [
+  { id: "anatomia", nombre: "Anatomía Humana", semestre: 1 },
+  { id: "biologia", nombre: "Biología Celular", semestre: 1 },
+  // Agrega aquí todos los ramos igual que tu lista original...
+];
+
+const mallaContainer = document.getElementById("malla-container");
+
+function crearRamo(ramo) {
+  const div = document.createElement("div");
+  div.classList.add("ramo");
+  div.innerText = ramo.nombre;
+  div.dataset.id = ramo.id;
+  div.dataset.semestre = ramo.semestre;
+  div.addEventListener("click", () => {
+    div.classList.toggle("approved");
+    console.log(`Ramo ${ramo.nombre} clickeado`);
+  });
+  return div;
+}
+
+function renderMalla() {
+  mallaContainer.innerHTML = "";
+  for (let semestre = 1; semestre <= 10; semestre++) {
+    const semestreTitle = document.createElement("div");
+    semestreTitle.classList.add("semestre-title");
+    semestreTitle.innerText = `Semestre ${semestre}`;
+    mallaContainer.appendChild(semestreTitle);
+
+    const semestreRamos = ramos.filter(r => r.semestre === semestre);
+    semestreRamos.forEach(ramo => {
+      const ramoDiv = crearRamo(ramo);
+      mallaContainer.appendChild(ramoDiv);
+    });
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  renderMalla();
+});
 
