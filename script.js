@@ -1,107 +1,101 @@
-// Archivo script.js funcional con requisitos completos e interacción avanzada
-
 const ramos = [
   // Semestre 1
   { id: "anatomia", nombre: "Anatomía Humana", semestre: 1 },
   { id: "biocel", nombre: "Biología Celular", semestre: 1 },
-  { id: "labbiocel", nombre: "Lab. de Biología Celular", semestre: 1 },
-  { id: "quimcel", nombre: "Química Celular", semestre: 1 },
-  { id: "quimgeneral", nombre: "Química General", semestre: 1 },
-  { id: "introTM", nombre: "Intro a la Tecnología Médica", semestre: 1 },
+  { id: "labbiocel", nombre: "Laboratorio de Biología Celular", semestre: 1 },
+  { id: "quimicacelular", nombre: "Química Celular", semestre: 1 },
+  { id: "quimicagral", nombre: "Química General", semestre: 1 },
+  { id: "introTM", nombre: "Introducción a la Tecnología Médica", semestre: 1 },
   { id: "algebra", nombre: "Elementos de Álgebra y Cálculo", semestre: 1 },
 
   // Semestre 2
-  { id: "histo", nombre: "Histoembriología", semestre: 2 },
+  { id: "histo", nombre: "Hisoembriología", semestre: 2 },
   { id: "fisica", nombre: "Física General", semestre: 2 },
-  { id: "quimorg", nombre: "Química Orgánica", semestre: 2 },
+  { id: "quimicaorg", nombre: "Química Orgánica", semestre: 2 },
   { id: "ingles1", nombre: "Inglés I", semestre: 2 },
   { id: "comunicacion", nombre: "Habilidades Comunicativas", semestre: 2 },
 
   // Semestre 3
   { id: "fisiologia", nombre: "Fisiología Humana", semestre: 3 },
   { id: "bioetica", nombre: "Bioética", semestre: 3 },
-  { id: "bioq", nombre: "Bioquímica", semestre: 3 },
-  { id: "infecto", nombre: "Infectología", semestre: 3 },
+  { id: "bioquimica", nombre: "Bioquímica", semestre: 3 },
+  { id: "infectologia", nombre: "Infectología", semestre: 3 },
   { id: "ingles2", nombre: "Inglés II", semestre: 3, requisitos: ["ingles1"] },
-  { id: "tics", nombre: "Razonamiento Científico y TICs", semestre: 3 },
+  { id: "tic", nombre: "Razonamiento Científico y TICs", semestre: 3 },
 
   // Semestre 4
-  { id: "fisiopato", nombre: "Fisiopatología", semestre: 4 },
-  { id: "farmaco", nombre: "Farmacología General", semestre: 4 },
+  { id: "fisiopatologia", nombre: "Fisiopatología", semestre: 4 },
+  { id: "farmacologia", nombre: "Farmacología General", semestre: 4 },
   { id: "parasitologia", nombre: "Parasitología", semestre: 4 },
-  { id: "inmuno", nombre: "Inmunología Diagnóstica", semestre: 4 },
+  { id: "inmunodiag", nombre: "Inmunología Diagnóstica", semestre: 4 },
   { id: "ingles3", nombre: "Inglés III", semestre: 4, requisitos: ["ingles2"] },
 
   // Semestre 5
-  { id: "procedimientos", nombre: "Procedimientos y Bioseguridad", semestre: 5, requisitos: ["farmaco"] },
-  { id: "saludpub1", nombre: "Salud Pública I", semestre: 5, requisitos: ["fisiopato"] },
-  { id: "micro1", nombre: "Microbiología I", semestre: 5, requisitos: ["parasitologia", "farmaco"] },
-  { id: "hemato1", nombre: "Hematología I", semestre: 5, requisitos: ["fisiopato", "inmuno"] },
+  { id: "procedimientos", nombre: "Procedimientos TM y Bioseguridad", semestre: 5, requisitos: ["farmacologia"] },
+  { id: "saludpub1", nombre: "Salud Pública I", semestre: 5, requisitos: ["fisiopatologia"] },
+  { id: "micro1", nombre: "Microbiología I", semestre: 5, requisitos: ["parasitologia", "farmacologia"] },
+  { id: "hematologia1", nombre: "Hematología I", semestre: 5, requisitos: ["fisiopatologia", "inmunodiag"] },
   { id: "ingles4", nombre: "Inglés IV", semestre: 5, requisitos: ["ingles3"] },
 
   // Semestre 6
   { id: "saludpub2", nombre: "Salud Pública II", semestre: 6, requisitos: ["saludpub1", "procedimientos"] },
   { id: "micro2", nombre: "Microbiología II", semestre: 6, requisitos: ["micro1"] },
-  { id: "hemato2", nombre: "Hematología II", semestre: 6, requisitos: ["hemato1"] },
-  { id: "bioqclin1", nombre: "Bioquímica Clínica I", semestre: 6, requisitos: ["inmuno", "hemato1"] },
+  { id: "hematologia2", nombre: "Hematología II", semestre: 6, requisitos: ["hematologia1"] },
+  { id: "bioqclinica1", nombre: "Bioquímica Clínica I", semestre: 6, requisitos: ["hematologia1", "inmunodiag"] },
 
   // Semestre 7
-  { id: "educacion", nombre: "Educación en Salud", semestre: 7, requisitos: ["saludpub2"] },
-  { id: "admin", nombre: "Administración y Gestión", semestre: 7, requisitos: ["saludpub2", "bioqclin1"] },
-  { id: "biomol", nombre: "Biología Molecular", semestre: 7, requisitos: ["bioqclin1"] },
-  { id: "inmunohemato", nombre: "Inmunohematología", semestre: 7, requisitos: ["hemato1"] },
-  { id: "bioqclin2", nombre: "Bioquímica Clínica II", semestre: 7, requisitos: ["bioqclin1"] },
-  { id: "integrador1", nombre: "Integrador I: Caso Clínico", semestre: 7, requisitos: ["bioqclin2", "inmunohemato", "admin", "biomol", "educacion", "saludpub2", "hemato2", "micro2"] },
+  { id: "educacionsalud", nombre: "Educación en Salud", semestre: 7, requisitos: ["saludpub2"] },
+  { id: "gestion", nombre: "Administración y Gestión en Salud", semestre: 7, requisitos: ["saludpub2", "bioqclinica1"] },
+  { id: "biomol", nombre: "Biología Molecular", semestre: 7, requisitos: ["bioqclinica1"] },
+  { id: "inmunohemato", nombre: "Inmunohematología", semestre: 7, requisitos: ["hematologia1"] },
+  { id: "bioqclinica2", nombre: "Bioquímica Clínica II", semestre: 7, requisitos: ["bioqclinica1"] },
+  { id: "integrador1", nombre: "Integrador I: Caso Clínico", semestre: 7, requisitos: ["saludpub2", "bioqclinica1", "inmunohemato", "biomol", "bioqclinica2", "educacionsalud", "gestion"] },
 
   // Semestre 8
-  { id: "metodologia", nombre: "Metodología Investigación", semestre: 8, requisitos: ["saludpub2", "integrador1"] },
-  { id: "gestion", nombre: "Gestión y Calidad", semestre: 8, requisitos: ["admin", "integrador1"] },
-  { id: "transfusion", nombre: "Medicina Transfusional", semestre: 8, requisitos: ["integrador1", "inmunohemato"] },
+  { id: "investigacion", nombre: "Metodología de la Investigación", semestre: 8, requisitos: ["saludpub2", "integrador1"] },
+  { id: "asegcalidad", nombre: "Gestión y Aseguramiento de la Calidad", semestre: 8, requisitos: ["gestion", "integrador1"] },
+  { id: "transfusional", nombre: "Medicina Transfusional", semestre: 8, requisitos: ["inmunohemato", "integrador1"] },
   { id: "diagmol", nombre: "Diagnóstico Molecular Clínico", semestre: 8, requisitos: ["integrador1"] },
-  { id: "procesamiento", nombre: "Procesamiento Crítico", semestre: 8 },
+  { id: "critico", nombre: "Procesamiento Crítico", semestre: 8 },
 
   // Semestre 9
-  { id: "responsabilidad", nombre: "Responsabilidad Social", semestre: 9, requisitos: ["metodologia", "gestion", "transfusion", "diagmol"] },
-  { id: "seminario", nombre: "Seminario Investigación", semestre: 9, requisitos: ["metodologia", "integrador1"] },
+  { id: "responsabilidad", nombre: "Responsabilidad Social", semestre: 9, requisitos: ["integrador1", "transfusional", "diagmol", "asegcalidad", "investigacion"] },
+  { id: "seminario", nombre: "Seminario de Investigación", semestre: 9, requisitos: ["responsabilidad"] },
 
   // Semestre 10
-  { id: "integrador2", nombre: "Integrador II: Internado Clínico", semestre: 10, requisitos: ["seminario", "responsabilidad"] }
+  { id: "internado", nombre: "Integrador II: Internado Clínico", semestre: 10, requisitos: ["seminario"] }
 ];
 
 const mallaContainer = document.getElementById("malla-container");
-const estadoContainer = document.getElementById("estado");
+const estadoDiv = document.getElementById("estado");
 
-function crearRamo(ramo) {
-  const div = document.createElement("div");
-  div.classList.add("ramo");
-  div.innerText = ramo.nombre;
-  div.dataset.id = ramo.id;
-  if (ramo.requisitos) {
-    div.classList.add("locked");
-    div.dataset.requisitos = JSON.stringify(ramo.requisitos);
-  }
-  div.addEventListener("click", () => toggleEstadoRamo(ramo.id));
-  return div;
-}
+function crearColumna(semestre) {
+  const columna = document.createElement("div");
+  columna.classList.add("semestre-column");
 
-function renderMalla() {
-  for (let s = 1; s <= 10; s++) {
-    const title = document.createElement("div");
-    title.className = "semestre-title";
-    title.textContent = `Semestre ${s}`;
-    mallaContainer.appendChild(title);
+  const titulo = document.createElement("div");
+  titulo.classList.add("semestre-title");
+  titulo.innerText = `Semestre ${semestre}`;
+  columna.appendChild(titulo);
 
-    ramos.filter(r => r.semestre === s).forEach(ramo => {
-      const div = crearRamo(ramo);
-      mallaContainer.appendChild(div);
+  ramos
+    .filter(r => r.semestre === semestre)
+    .forEach(ramo => {
+      const div = document.createElement("div");
+      div.classList.add("ramo");
+      div.innerText = ramo.nombre;
+      div.dataset.id = ramo.id;
+      div.dataset.semestre = ramo.semestre;
+      if (ramo.requisitos) div.dataset.requisitos = JSON.stringify(ramo.requisitos);
+      div.addEventListener("click", () => toggleEstado(div));
+      columna.appendChild(div);
     });
-  }
+
+  return columna;
 }
 
-function toggleEstadoRamo(id) {
-  const el = document.querySelector(`.ramo[data-id="${id}"]`);
+function toggleEstado(el) {
   if (el.classList.contains("locked")) return;
-
   if (el.classList.contains("approved")) {
     el.classList.remove("approved");
     el.classList.add("failed");
@@ -110,9 +104,15 @@ function toggleEstadoRamo(id) {
   } else {
     el.classList.add("approved");
   }
-
   actualizarBloqueos();
-  calcularRetraso();
+  calcularAtraso();
+}
+
+function renderMalla() {
+  for (let semestre = 1; semestre <= 10; semestre++) {
+    mallaContainer.appendChild(crearColumna(semestre));
+  }
+  actualizarBloqueos();
 }
 
 function actualizarBloqueos() {
@@ -122,11 +122,11 @@ function actualizarBloqueos() {
       el.classList.remove("locked");
       return;
     }
-    const aprobados = ramo.requisitos.every(req => {
-      const elReq = document.querySelector(`.ramo[data-id="${req}"]`);
+    const requisitosAprobados = ramo.requisitos.every(reqId => {
+      const elReq = document.querySelector(`.ramo[data-id="${reqId}"]`);
       return elReq && elReq.classList.contains("approved");
     });
-    if (aprobados) {
+    if (requisitosAprobados) {
       el.classList.remove("locked");
     } else {
       el.classList.add("locked");
@@ -134,17 +134,17 @@ function actualizarBloqueos() {
   });
 }
 
-function calcularRetraso() {
-  let retraso = 0;
+function calcularAtraso() {
+  let atraso = 0;
   for (let s = 1; s <= 10; s++) {
-    const ramosSem = ramos.filter(r => r.semestre === s);
-    const aprobados = ramosSem.filter(r => {
+    const ramosSemestre = ramos.filter(r => r.semestre === s);
+    const aprobados = ramosSemestre.filter(r => {
       const el = document.querySelector(`.ramo[data-id="${r.id}"]`);
       return el && el.classList.contains("approved");
     });
-    if (aprobados.length < ramosSem.length) retraso++;
+    if (aprobados.length < ramosSemestre.length) atraso++;
   }
-  estadoContainer.textContent = `Semestres atrasados: ${retraso}`;
+  estadoDiv.innerText = `Estado: ${atraso} semestre(s) de atraso`;
 }
 
 renderMalla();
