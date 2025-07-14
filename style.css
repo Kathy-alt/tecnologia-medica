@@ -8,32 +8,34 @@ body {
 h1 {
   text-align: center;
   color: #6e0f2c;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
-#malla-container {
-  display: grid;
-  grid-template-columns: repeat(10, 1fr);
-  gap: 10px;
-  margin-top: 20px;
+table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
 }
 
-.semestre-title {
-  grid-column: span 10;
-  font-weight: bold;
-  font-size: 18px;
-  margin-top: 20px;
-  color: #8a1538;
+th {
+  background-color: #6e0f2c;
+  color: white;
+  padding: 10px;
+}
+
+td {
+  vertical-align: top;
+  padding: 5px;
 }
 
 .ramo {
   background-color: #f3dbe2;
   border: 2px solid #8a1538;
-  padding: 10px;
   border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 10px;
   text-align: center;
   cursor: pointer;
-  user-select: none;
   transition: background-color 0.3s, color 0.3s;
   font-size: 13px;
 }
@@ -60,11 +62,11 @@ h1 {
 }
 
 #estado {
-  margin-top: 30px;
+  margin: 20px auto;
   padding: 10px;
-  font-size: 16px;
-  text-align: center;
   background-color: #f5d9e0;
   border: 2px dashed #8a1538;
   border-radius: 8px;
+  text-align: center;
+  font-weight: bold;
 }
