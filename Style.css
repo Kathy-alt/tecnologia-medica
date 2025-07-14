@@ -1,58 +1,70 @@
 body {
-  font-family: Arial, sans-serif;
-  background-color: #fff0f5;
-  color: #333;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f0f3;
+  color: #3d0a1a;
   padding: 20px;
 }
 
 h1 {
   text-align: center;
-  color: #c71585;
+  color: #6e0f2c;
+  margin-bottom: 30px;
 }
 
 #malla-container {
   display: grid;
   grid-template-columns: repeat(10, 1fr);
   gap: 10px;
-  margin-top: 30px;
+  margin-top: 20px;
+}
+
+.semestre-title {
+  grid-column: span 10;
+  font-weight: bold;
+  font-size: 18px;
+  margin-top: 20px;
+  color: #8a1538;
 }
 
 .ramo {
-  background-color: #ffc0cb;
-  border: 2px solid #c71585;
+  background-color: #f3dbe2;
+  border: 2px solid #8a1538;
   padding: 10px;
   border-radius: 8px;
   text-align: center;
   cursor: pointer;
   user-select: none;
-  transition: 0.2s;
+  transition: background-color 0.3s, color 0.3s;
   font-size: 13px;
-  position: relative;
 }
 
 .ramo.locked {
-  background-color: #ffe6ec;
-  border-color: #999;
-  color: #aaa;
+  background-color: #f9e9ef;
+  border-color: #ccc;
+  color: #999;
   cursor: not-allowed;
 }
 
 .ramo.approved {
-  background-color: #ff69b4;
+  background-color: #a83257;
   color: white;
   font-weight: bold;
-  border-color: #c71585;
+  border-color: #6e0f2c;
 }
 
 .ramo.failed {
-  background-color: #ccc;
-  border-color: #666;
-  color: #333;
+  background-color: #ffd4d4;
+  border-color: #b30000;
+  color: #b30000;
+  font-weight: bold;
 }
 
-#atraso-info {
-  margin-top: 20px;
-  font-weight: bold;
-  color: #c71585;
+#estado {
+  margin-top: 30px;
+  padding: 10px;
+  font-size: 16px;
   text-align: center;
+  background-color: #f5d9e0;
+  border: 2px dashed #8a1538;
+  border-radius: 8px;
 }
