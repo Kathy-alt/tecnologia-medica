@@ -1,0 +1,58 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #fff0f5;
+  color: #333;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #c71585;
+}
+
+#malla-container {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 10px;
+  margin-top: 30px;
+}
+
+.ramo {
+  background-color: #ffc0cb;
+  border: 2px solid #c71585;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+  transition: 0.2s;
+  font-size: 13px;
+  position: relative;
+}
+
+.ramo.locked {
+  background-color: #ffe6ec;
+  border-color: #999;
+  color: #aaa;
+  cursor: not-allowed;
+}
+
+.ramo.approved {
+  background-color: #ff69b4;
+  color: white;
+  font-weight: bold;
+  border-color: #c71585;
+}
+
+.ramo.failed {
+  background-color: #ccc;
+  border-color: #666;
+  color: #333;
+}
+
+#atraso-info {
+  margin-top: 20px;
+  font-weight: bold;
+  color: #c71585;
+  text-align: center;
+}
