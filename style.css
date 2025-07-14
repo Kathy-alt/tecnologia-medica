@@ -13,36 +13,42 @@ h1 {
 }
 
 #malla-container {
-  display: grid;
-  grid-template-columns: repeat(10, 1fr);
-  gap: 15px;
-  margin-top: 10px;
+  width: 100%;
+  border-collapse: collapse;
+  margin: auto;
+  table-layout: fixed;
 }
 
-.semestre-column {
-  display: flex;
-  flex-direction: column;
+#malla-container th, #malla-container td {
+  border: 2px solid #8a1538;
+  padding: 10px 5px;
+  vertical-align: top;
+  font-size: 13px;
+  width: 10%;
+  max-width: 120px;
+  min-width: 100px;
 }
 
-.semestre-title {
+#malla-container th {
+  background-color: #8a1538;
+  color: #f3dbe2;
   font-weight: bold;
-  font-size: 18px;
-  margin-bottom: 10px;
-  color: #8a1538;
   text-align: center;
 }
 
 .ramo {
   background-color: #f3dbe2;
   border: 2px solid #8a1538;
-  padding: 10px 8px;
-  border-radius: 8px;
+  border-radius: 6px;
+  padding: 5px;
+  margin: 3px 0;
   text-align: center;
   cursor: pointer;
   user-select: none;
-  margin-bottom: 8px;
-  font-size: 13px;
   transition: background-color 0.3s, color 0.3s;
+  font-size: 12px;
+  line-height: 1.2em;
+  word-wrap: break-word;
 }
 
 .ramo.locked {
@@ -67,14 +73,15 @@ h1 {
 }
 
 #estado {
-  margin: 20px auto 0 auto;
+  margin-top: 30px;
   padding: 10px;
   font-size: 16px;
   text-align: center;
   background-color: #f5d9e0;
   border: 2px dashed #8a1538;
   border-radius: 8px;
-  max-width: 400px;
-  font-weight: 600;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: bold;
 }
-
