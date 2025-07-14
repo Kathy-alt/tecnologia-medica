@@ -3,7 +3,6 @@ body {
   background-color: #f9f0f3;
   color: #3d0a1a;
   padding: 20px;
-  margin: 0;
 }
 
 h1 {
@@ -12,57 +11,33 @@ h1 {
   margin-bottom: 30px;
 }
 
-#malla-container {
+table.malla-table {
   width: 100%;
   border-collapse: collapse;
-  margin: auto;
-  table-layout: fixed;
+  margin-top: 20px;
 }
 
-#malla-container th, #malla-container td {
-  border: 2px solid #8a1538;
-  padding: 10px 5px;
-  vertical-align: top;
-  font-size: 13px;
-  width: 10%;
-  max-width: 120px;
-  min-width: 100px;
-}
-
-#malla-container th {
-  background-color: #8a1538;
-  color: #f3dbe2;
-  font-weight: bold;
+table.malla-table th,
+table.malla-table td {
+  border: 1px solid #8a1538;
+  padding: 10px;
   text-align: center;
+  vertical-align: middle;
+  font-size: 13px;
 }
 
 .ramo {
   background-color: #f3dbe2;
-  border: 2px solid #8a1538;
-  border-radius: 6px;
-  padding: 5px;
-  margin: 3px 0;
-  text-align: center;
   cursor: pointer;
   user-select: none;
+  border-radius: 6px;
   transition: background-color 0.3s, color 0.3s;
-  font-size: 12px;
-  line-height: 1.2em;
-  word-wrap: break-word;
-}
-
-.ramo.locked {
-  background-color: #f9e9ef;
-  border-color: #ccc;
-  color: #999;
-  cursor: not-allowed;
 }
 
 .ramo.approved {
   background-color: #a83257;
   color: white;
   font-weight: bold;
-  border-color: #6e0f2c;
 }
 
 .ramo.failed {
@@ -70,6 +45,13 @@ h1 {
   border-color: #b30000;
   color: #b30000;
   font-weight: bold;
+}
+
+.ramo.locked {
+  background-color: #f9e9ef;
+  border-color: #ccc;
+  color: #999;
+  cursor: not-allowed;
 }
 
 #estado {
@@ -80,8 +62,4 @@ h1 {
   background-color: #f5d9e0;
   border: 2px dashed #8a1538;
   border-radius: 8px;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-  font-weight: bold;
 }
